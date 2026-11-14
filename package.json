@@ -1,0 +1,146 @@
+{
+  "name": "@smaltworks/smaltgl",
+  "version": "0.1.0",
+  "description": "Maps for smaltdb, in the browser: location data drawn on the GPU with WebGPU.",
+  "keywords": [
+    "map",
+    "geospatial",
+    "webgpu",
+    "gpu",
+    "visualization",
+    "vector-tiles",
+    "openstreetmap",
+    "smaltdb",
+    "browser"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stenhoor/smalt-geo.git"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test",
+    "build": "node scripts/build.mjs && node scripts/build-plugin.mjs",
+    "test:browser": "node test/browser/run.mjs",
+    "test:browser:quick": "node test/browser/run.mjs --quick",
+    "bench": "node test/browser/bench.mjs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "test:quick": "npm run check && npm run test:browser:quick"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/smaltgl.js"
+    },
+    "./core": {
+      "types": "./dist/types/core/index.d.ts",
+      "default": "./dist/core.js"
+    },
+    "./map": {
+      "types": "./dist/types/map/index.d.ts",
+      "default": "./dist/map.js"
+    },
+    "./layers": {
+      "types": "./dist/types/layers/index.d.ts",
+      "default": "./dist/layers.js"
+    },
+    "./layer-kit": {
+      "types": "./dist/types/layers/kit.d.ts",
+      "default": "./dist/layer-kit.js"
+    },
+    "./scatter": {
+      "types": "./dist/types/layers/scatter.d.ts",
+      "default": "./dist/scatter.js"
+    },
+    "./heatmap": {
+      "types": "./dist/types/layers/heatmap.d.ts",
+      "default": "./dist/heatmap.js"
+    },
+    "./aggregate": {
+      "types": "./dist/types/layers/aggregate.d.ts",
+      "default": "./dist/aggregate.js"
+    },
+    "./arcs": {
+      "types": "./dist/types/layers/arcs.d.ts",
+      "default": "./dist/arcs.js"
+    },
+    "./paths": {
+      "types": "./dist/types/layers/paths.d.ts",
+      "default": "./dist/paths.js"
+    },
+    "./polygons": {
+      "types": "./dist/types/layers/polygons.d.ts",
+      "default": "./dist/polygons.js"
+    },
+    "./basemap": {
+      "types": "./dist/types/basemap/index.d.ts",
+      "default": "./dist/basemap.js"
+    },
+    "./vector-tiles": {
+      "types": "./dist/types/basemap/vector-tiles.d.ts",
+      "default": "./dist/vector-tiles.js"
+    },
+    "./data": {
+      "types": "./dist/types/data/index.d.ts",
+      "default": "./dist/data.js"
+    },
+    "./geojson": {
+      "types": "./dist/types/data/geojson.d.ts",
+      "default": "./dist/geojson.js"
+    },
+    "./smaltdb": {
+      "types": "./dist/types/data/smaltdb.d.ts",
+      "default": "./dist/smaltdb.js"
+    },
+    "./smaltcy": {
+      "types": "./dist/types/data/smaltcy.d.ts",
+      "default": "./dist/smaltcy.js"
+    },
+    "./datasets": {
+      "types": "./dist/types/datasets/index.d.ts",
+      "default": "./dist/datasets.js"
+    },
+    "./visual": {
+      "types": "./dist/types/visual/index.d.ts",
+      "default": "./dist/visual.js"
+    },
+    "./tile-worker": "./dist/smaltgl-tile-worker.js",
+    "./data-worker": "./dist/smaltgl-data-worker.js",
+    "./package.json": "./package.json",
+    "./smaltbi-plugin": "./dist/smaltbi-plugin.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "smaltdb": "^0.8.3"
+  },
+  "peerDependenciesMeta": {
+    "smaltdb": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@smaltworks/smaltcy": "github:apbeers/smalt-graph-db#f0a84e3b32713234766a4b3680921174b603f21f",
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.28.2",
+    "smaltdb": "^0.8.3",
+    "typescript": "^7.1.0-beta",
+    "vitepress": "1.6.4",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "smaltkit": "github:apbeers/smaltkit#ba10e98e1800793341378d78fe50b00196c53462"
+  }
+}
